@@ -1,5 +1,6 @@
 package day7;
 
+
 public class Patient {
 	private String name;
 	private int age;
@@ -13,6 +14,15 @@ public class Patient {
 		this.illness = illness;
 		this.nextPatient = null;
 }
+	
+	public int count () {
+		
+		if (this.nextPatient == null) {
+			return 1;
+		} else {
+			return 1+ this.nextPatient.count();
+		}
+	}
 
 	public void addPatient (Patient newPatient) {
 		
