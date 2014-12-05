@@ -32,10 +32,25 @@ public class HospitalManager {
 		PatientListAddedLast.addPatient(p10);
 		
 	
-		
-		PatientListAddedLast.deletePatient("Maria");
 		PatientListAddedLast.printElements();
-	
+		System.out.println();
+		PatientListAddedLast.traverseBack();
+		System.out.println();
+		
+		PatientListAddedLast.deletePatient("Simon");
+		PatientListAddedLast.deletePatient("Flavio");
+		
+		PatientListAddedLast.printElements();
+		System.out.println();
+		PatientListAddedLast.traverseBack();
+		System.out.println();
+		
+		
+		PatientListAddedLast.addPatient(new Patient ("Rob", 25, "Lupus"));
+		
+		PatientListAddedLast.printElements();
+		System.out.println();
+		PatientListAddedLast.traverseBack();
 	}
 
 }

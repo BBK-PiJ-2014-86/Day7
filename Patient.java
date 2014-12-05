@@ -1,12 +1,17 @@
 package day7;
 
-
 public class Patient {
 	private String name;
 	private int age;
 	private String illness;
 	private Patient nextPatient;
+	private Patient previousPatient;
 	
+	
+	public Patient () {
+		nextPatient = null;
+		previousPatient = null;
+	}
 	
 	public Patient(String name, int age, String illness) {
 		this.name = name;
@@ -14,24 +19,38 @@ public class Patient {
 		this.illness = illness;
 		this.nextPatient = null;
 }
-	
-	public int count () {
-		
-		if (this.nextPatient == null) {
-			return 1;
-		} else {
-			return 1+ this.nextPatient.count();
-		}
-	}
 
 	public void addPatient (Patient newPatient) {
 		
 		if (this.nextPatient ==null) {
 			this.nextPatient = newPatient;
+			newPatient.previousPatient = this;
 		} else {
 			this.nextPatient.addPatient(newPatient);
 		}
 		
+	}
+	
+	public void traverseBack () {
+		
+		Patient last;
+		last = this;
+		
+		while (last.nextPatient != null) {
+			last = last.nextPatient;
+		}
+		
+		while (true) {
+			System.out.println(last);
+			last = last.previousPatient;
+			
+			if (last.previousPatient==null) {
+				System.out.println(last);
+				break;
+			}
+		}
+		
+
 	}
 	
 	public String toString () {
@@ -51,6 +70,7 @@ public class Patient {
 		if (this.nextPatient == null) {
 			return false;
 		} else if ( this.nextPatient.name.equals(name)){
+			this.nextPatient.nextPatient.previousPatient = this;
 			this.nextPatient = this.nextPatient.nextPatient;
 			return true;
 		} else {
