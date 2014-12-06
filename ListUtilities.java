@@ -4,6 +4,10 @@ public class ListUtilities {
 
 	private Node head = null;
 	
+	public Node getHead () {
+		return head;
+	}
+	
 	public static ListUtilities arrayToLinkedList (int [] array ) {
 		
 		ListUtilities lu = new ListUtilities();
@@ -22,8 +26,12 @@ public class ListUtilities {
 		
 		Node current = null;
 		current = head;
-		
-		if (head == null) {
+	
+		/*
+		 * 
+		 * This does automatic sorting
+		 * 
+		 if (head == null) {
 			head=node;
 		} else if (head.number>node.number) {
 		
@@ -46,8 +54,24 @@ public class ListUtilities {
 			}
 			current.next = node;	
 		}
+	
+	*/
+		
+		
+		if (head == null) {
+			head=node;
+		} else  {
+			while (current.next != null) {
+				current = current.next;
+			}
+			current.next = node;	
+		}
+		
 	}
 	
+	
+		
+		
 	public void printElements () {
 		
 		Node current = head;
@@ -59,6 +83,40 @@ public class ListUtilities {
 		
 		System.out.print(" " + current.number + " ");
 		
+	}
+	
+	public int getSize () {
+		int size = 1;
+		Node current = head;
+		
+		if (head == null) {
+			return 0;
+		} else {
+			while (current.next != null) {
+				size ++;
+				current = current.next;				
+			}
+			return size;
+		}
+		
+	}
+	
+	public static void bubbleSort (ListUtilities list) {
+		
+		Node current = list.head;
+		
+		for (int i = 0; i<list.getSize(); i++) {
+			if(current.number>current.next.number) {
+				int temp;
+				temp = current.number;
+				current.number = current.next.number;
+				current.next.number = temp;
+			}
+			current = current.next;
+			
+			if (current.next == null) break;
+		}
+
 	}
 	
 	
