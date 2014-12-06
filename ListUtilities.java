@@ -20,15 +20,31 @@ public class ListUtilities {
 	
 	public void add (Node node) {
 		
+		Node current = null;
+		current = head;
+		
 		if (head == null) {
 			head=node;
-		} else {
-		Node current = head;
+		} else if (head.number>node.number) {
 		
-		while (current.next!=null) {
-			current = current.next;
-		}
-		current.next = node;
+			Node tempN = head;
+			head = node;
+			head.next = tempN;
+		
+		} else {
+			while (current.next != null) {
+
+				if (node.number<current.next.number) {
+				
+				 	node.next = current.next;
+				 	current.next = node;
+				 	break;
+				} else {
+					
+					current = current.next;
+				}
+			}
+			current.next = node;	
 		}
 	}
 	
