@@ -1,4 +1,4 @@
-package day7;
+package Day7;
 
 public class Hospital {
 	
@@ -33,9 +33,9 @@ public class Hospital {
 		
 		PatientListAddedLast.deletePatient("Maria");
 		PatientListAddedLast.printElements();
-		System.out.println(PatientListAddedLast.count());
+		//System.out.println(PatientListAddedLast.count());
 		PatientListAddedLast.deletePatient("Monica");
-		System.out.println(PatientListAddedLast.count());
+		//System.out.println(PatientListAddedLast.count());
 	}
 
 }

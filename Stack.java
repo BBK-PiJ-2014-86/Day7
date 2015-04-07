@@ -1,4 +1,4 @@
-package day7;
+package Day7;
 
 public class Stack {
 
@@ -37,7 +37,7 @@ public class Stack {
 			return false;
 		} else if (temp.getNext() == null){ 
 			
-			System.out.println("Popping... it’s a "+bottom.getRequestId());
+			System.out.println("Popping... itï¿½s a "+bottom.getRequestId());
 			bottom =null;
 			return true;
 			
@@ -47,7 +47,7 @@ public class Stack {
 				temp = temp.getNext();
 			}
 			
-			System.out.println("Popping... it’s a "+temp.getNext().getRequestId());
+			System.out.println("Popping... itï¿½s a "+temp.getNext().getRequestId());
 			temp.setNext(null);
 			return true;
 			
