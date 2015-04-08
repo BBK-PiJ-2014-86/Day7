@@ -55,8 +55,33 @@ public class Stack {
 
 	}
 
-
-
+	/**
+	 * 
+	 * @return
+	 */
+	
+	public Request peek() {
+		
+		Request temp = bottom;
+		
+		if (isEmpty()) {
+			System.out.println("The Stack is empty");
+			return null;
+		} else if (temp.getNext() == null){ 
+	
+			return temp;
+			
+		}else {
+			
+			while ((temp.getNext().getNext()!= null)) {
+				temp = temp.getNext();
+			}
+			
+			return temp;
+			
+		}
+		
+	}
 	
 	
 	public boolean isEmpty () {
